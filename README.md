@@ -12,10 +12,12 @@ Before we start writing our code, let’s understand the concept about different
 In computer vision or image analysis most commonly used color spaces are RGB, HSV, and YUV.
 
 **RGB** :represents colors using red, green, and blue values (RGB). Note that OpenCV uses BGR color code instead of RBG.
+
 **HSV**:This type of color space separates the color information from the brightness information of an image. It represents colors using hue, saturation, and value.
 Hue  represents the color of a pixel, such as red, green, blue. We can measure this in degrees with range of 0 to 360. 0 represents red, 120 represents green, and 240 represents blue.
 Saturation represents how pure the color is. A highly saturated color is pure, while a less saturated color is mixed with white. Saturation is measured in percentages with range of 0% to 100%. 0% means white and 100% means purest color.
 Value represents the brightness of the pixel. A high value represents a bright pixel, while a low value represents a dark pixel. We can also measure in percentage. 0% represents black and 100% represents white.
+
 **YUV**:We can use this color space to separate color information into luminance (Y) and chrominance (UV). It is slightly more complex than HSV.
 
 ### Step 1: Import Libraries
