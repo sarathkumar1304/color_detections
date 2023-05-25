@@ -22,38 +22,40 @@ Value represents the brightness of the pixel. A high value represents a bright p
 
 You need to install required libraries
 
-pip install opencv-python
+    pip install opencv-python
 
-pip install numpy
+    pip install numpy
 
 These two libraries for important to run the code
 ### Step 1: Import Libraries
 
-import cv2 as cv
+         import cv2 as cv
 
-import numpy as np
+         import numpy as np
 
 ### Step 2: Load image
 
-img=imread("image.jpg)
+      img=imread("image.jpg)
 
-cv.imshow("image",img) to display
+      cv.imshow("image",img) to display
 
 #for an image
 
-img=cv.imread("image.jpg")
+      img=cv.imread("image.jpg")
 
 #For live webcam
 
-cap = cv.VideoCapture(0)
+     cap = cv.VideoCapture(0)
 
 #For a video file
 
-cap = cv.VideoCapture("path of video file")
+     cap = cv.VideoCapture("path of video file")
 
-while True:
-    ret, img = cap.read()
-    img = cv.resize(img, dsize=(700, 500))
+    while True:
+
+     ret, img = cap.read()
+    
+      img = cv.resize(img, dsize=(700, 500))
 
 ### Step 3: Convert image to HSV color space
 
@@ -65,7 +67,7 @@ This happens because, in RGB color system, the red color of the apple is made up
 
 This is the reason, we need to convert RGB color space to HSV. Because in the HSV color space, we only need to look at the Hue channel to detect the red color of the apple. We can set a specific range of values for the Hue channel to detect the red color of the apple.
 
-hsv=cv.cvtColor(img,cv.COLOR_BGR2HSV)
+     hsv=cv.cvtColor(img,cv.COLOR_BGR2HSV)
 
 ### Step4: Define a color range to detect
 
@@ -74,21 +76,30 @@ To detect multiple colors, we just need to mention color ranges for those colors
 In our input image, we just need to extract red, green, and blue colors. So we need to define color ranges for those colors. The code will be same. Below Python code is to do multiple color detection using OpenCV.
 
                          
-Eg. lower_red = np.array([0, 50, 50]) H,S,V
+Eg.
+    
+    lower_red = np.array([0, 50, 50]) H,S,V
 
     upper_red = np.array([10, 255, 255])
 
 ### Step 5: Filtering part of image based on the color range
- mask_red = cv.inRange(img, lower_red, upper_red)
- mask_green = cv.inRange(img, lower_green, upper_green)
- mask_blue = cv.inRange(img, lower_blue, upper_blue)
+    mask_red = cv.inRange(img, lower_red, upper_red)
+ 
+    mask_green = cv.inRange(img, lower_green, upper_green)
+  
+    mask_blue = cv.inRange(img, lower_blue, upper_blue)
 
 ### Step 6: Contour Detection
 
- contours_red, _ = cv.findContours(mask_red, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
- contours_green, _ = cv.findContours(mask_green, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
- contours_blue, _ = cv.findContours(mask_blue, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+    contours_red, _ = cv.findContours(mask_red, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+  
+    contours_green, _ = cv.findContours(mask_green, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+  
+    contours_blue, _ = cv.findContours(mask_blue, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+
 ### Step 7: Draw bounding box
+    
+       
     for cnt in contours_red:
         contours_area = cv.contourArea(cnt)
         if contours_area > 1000:
@@ -103,7 +114,7 @@ Eg. lower_red = np.array([0, 50, 50]) H,S,V
     cv.imshow("image", img)
     if cv.waitKey(1) & 0xFF == ord("q"):
         break
-cap.release()
-cv.destroyAllWindows()
+    cap.release()
+    cv.destroyAllWindows()
 
 
