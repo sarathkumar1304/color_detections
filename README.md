@@ -61,8 +61,9 @@ To detect multiple colors, we just need to mention color ranges for those colors
 
 In our input image, we just need to extract red, green, and blue colors. So we need to define color ranges for those colors. The code will be same. Below Python code is to do multiple color detection using OpenCV.
 
-                          H , S, V
-Eg. lower_red = np.array([0, 50, 50])
+                         
+Eg. lower_red = np.array([0, 50, 50]) H,S,V
+
     upper_red = np.array([10, 255, 255])
 
 ### Step 5: Filtering part of image based on the color range
