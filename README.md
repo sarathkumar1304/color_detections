@@ -28,20 +28,29 @@ pip install numpy
 
 These two libraries for important to run the code
 ### Step 1: Import Libraries
+
 import cv2 as cv
+
 import numpy as np
 
 ### Step 2: Load image
+
 img=imread("image.jpg)
+
 cv.imshow("image",img) to display
+
 #for an image
+
 img=cv.imread("image.jpg")
 
 #For live webcam
+
 cap = cv.VideoCapture(0)
 
 #For a video file
+
 cap = cv.VideoCapture("path of video file")
+
 while True:
     ret, img = cap.read()
     img = cv.resize(img, dsize=(700, 500))
