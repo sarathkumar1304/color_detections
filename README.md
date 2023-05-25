@@ -19,8 +19,11 @@ Saturation represents how pure the color is. A highly saturated color is pure, w
 Value represents the brightness of the pixel. A high value represents a bright pixel, while a low value represents a dark pixel. We can also measure in percentage. 0% represents black and 100% represents white.
 
 **YUV**:We can use this color space to separate color information into luminance (Y) and chrominance (UV). It is slightly more complex than HSV.
+
 You need to install required libraries
+
 pip install opencv-python
+
 pip install numpy
 
 These two libraries for important to run the code
